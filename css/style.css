@@ -1,0 +1,355 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* GENERAL RULES */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.wrapper {
+  width: 100%;
+  min-width: 900px;
+  height: 100%;
+  background: linear-gradient(180deg, #009688 100px, #d8dbd5 100px);
+  padding: 15px 0;
+}
+
+.boolz-app {
+  width: 100%;
+  max-width: 1170px;
+  min-width: 900px;
+  margin: 0 auto;
+  height: calc(100vh - 30px);
+  background: green;
+}
+.boolz-app::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+div[class*="-side"] {
+  float: left;
+  min-height: 300px;
+}
+.boolz-app .controls i {
+  cursor: pointer;
+}
+.left-side {
+  width:35%;
+  background: red;
+  height: 100%;
+  border-right: 1px solid #d6d6d6;
+}
+.right-side {
+  width:65%;
+  height: 100%
+}
+.left-side .my-account,
+.left-side .search-chat,
+.right-side .active-contact,
+.right-side .send-message {
+  padding: 10px;
+}
+.left-side .notifiche {
+  padding: 15px;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+[alt*="avatar"] {
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 50%;
+  display: inline-block;
+}
+.hidden {
+  display: none;
+}
+
+/* LEFT SIDE STYLE */
+/* My account block */
+.my-account {
+  height: 70px;
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-account .my-avatar,
+.my-account .controls {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.controls i {
+  margin-right: 15px;
+  font-size: 1.3em;
+  color: #b1b1b1;
+}
+
+/* Notifiche block */
+.notifiche {
+  height: 80px;
+  background: #8edafc;
+  display: flex;
+}
+.notifiche .bell-off {
+  min-height: 50px;
+  min-width: 50px;
+  border-radius: 50%;
+  line-height: 50px;
+  text-align: center;
+  margin: 0 10px;
+  display: inline-block;
+  background-color: #fff;
+}
+.bell-off i {
+  font-size: 1.7em;
+  vertical-align: middle;
+  color: #8edafc;
+}
+.notifiche-block {
+  display: inline-block;
+  vertical-align: middle;
+}
+.notifiche-block .notifiche-text {
+  font-weight: 500;
+  line-height: 1.4em;
+}
+.notifiche-block a {
+  font-size: 0.9em;
+  text-decoration: underline;
+  color: #9a9a9a;
+}
+
+/* Search block */
+.search-chat {
+  height: 60px;
+  background-color: #fafafa;
+  position: relative;
+}
+.search-chat i {
+  position: absolute;
+  top: 22px;
+  left: 25px;
+  font-size: 1.3em;
+  color: #d6d6d6;
+}
+.search-chat input {
+  width: 100%;
+  height: 100%;
+  padding: 10px 15px 10px 45px;
+  border: 1px solid #b1b1b1;
+  border-radius: 3px;
+  font-size: 1em;
+}
+.search-chat input::placeholder {
+  font-size: 0.9em;
+  color: #b1b1b1;
+}
+
+/* Contacts block */
+.contacts {
+  height: calc(100% - 210px);
+  background-color: #fff;
+  /* background: grey; */ /* TODO debug purpose*/
+  overflow-y: auto;
+}
+.contacts li {
+  height: 80px;
+  padding: 10px 0;
+  border-bottom: 1px solid #d6d6d6;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.contacts li.contact-js {
+  cursor: pointer;
+}
+.contacts li.contact-js.active {
+  background-color: #e9e9e9;
+}
+.contacts .contact-avatar,
+.active-contact .contact-avatar {
+  height: 100%;
+  margin-left: 15px;
+  display: flex
+}
+.contacts .contact-data,
+.active-contact .contact-data {
+  margin-left: 15px;
+  align-self: center;
+}
+.contact-data .contact-name {
+  font-weight: 500;
+  font-size: 1.2em;
+  line-height: 1.6em;
+}
+.contact-data .contact-slogan {
+  font-size: 0.9em;
+  color: #b1b1b1;
+}
+.contacts .time-stamp {
+  align-self: baseline;
+  padding: 5px;
+  font-size: 0.7em;
+  color: #ccc;
+  margin: 0 10px;
+}
+
+
+/* RIGHT SIDE STYLE */
+/* Active contact */
+.active-contact {
+  height: 70px;
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-data .contact-last-seen {
+  font-size: 0.9em;
+  color: #999;
+}
+
+/* Chat window */
+.chat-window {
+  height: calc(100% - 140px);
+  background-color: beige;
+  background: url(../img/mine.jpg);
+  overflow-y: auto;
+}
+.tamplate {
+  display: none;
+}
+.chat-saved {
+  display: none;
+}
+.chat-saved.visible {
+  display: block;
+}
+.message {
+  max-width: 60%;
+  min-width: 20%;
+  margin: 10px 20px;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  clear: both;
+}
+.message.send {
+  background: #d5f9ba;
+  float: right;
+}
+.message.recieved {
+  background: #f7f7f7;
+  float: left;
+}
+.message .msg-text {
+  padding-right: 30px;
+  display: inline-block;
+}
+.message .msg-time {
+  font-size: 0.7em;
+  color: #b1b1b1;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+.message .message-options {
+  padding: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  display: none;
+}
+.message:hover .message-options {
+  display: inline;
+}
+.message .msg-option-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 12px;
+  width: max-content;
+  top: 19px;
+  right: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 2px #1515152e;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+.message .msg-option-dropdown.active {
+  display: block;
+}
+.message .msg-option-dropdown:hover {
+  background-color: #e7e7e7;
+}
+
+
+/* Send message */
+.send-message {
+  height: 70px;
+  background-color: #f3eeea;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.send-message button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #6b7376;
+  font-size: 1.4em;
+  padding: 2px;
+  transition: .3s;
+}
+.send-message .write-message {
+  flex-basis: 80%;
+}
+.write-message input {
+ width: 100%;
+ padding: 15px;
+ border: none;
+ border-radius: 5px;
+ transition: .3s;
+}
+.write-message input:focus {
+  box-shadow: 0px 0px 12px 2px #58585852;
+}
+.send-message .emoji,
+.send-message .send-btn {
+  flex-basis: 10%;
+  text-align: center;
+}
+.send-message .emoji button:hover {
+  color: #ffbf00;
+}
+.send-message .send-btn button:hover .send-audio-msg,
+.send-message .send-btn button:hover .send-normal-msg  {
+  color: #009688;
+}
+.send-btn .send-audio-msg,
+.send-btn .send-normal-msg {
+ display: none;
+ width: 0px;
+}
+.send-btn .send-audio-msg.active,
+.send-btn .send-normal-msg.active {
+ display: block;
+ transition: .3s;
+}
+.send-btn button:active .send-audio-msg {
+  display: none;
+}
+.send-btn button:active .send-normal-msg {
+  display: block;
+}
